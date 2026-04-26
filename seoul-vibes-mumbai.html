@@ -1,0 +1,2325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seoul Vibes Mumbai – For Desi K-pop Stans 💜</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800;900&family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --neon-pink: #FF2D78;
+    --neon-purple: #B44FFF;
+    --neon-cyan: #00F0FF;
+    --soft-lavender: #EDE8FF;
+    --soft-pink: #FFE8F3;
+    --pastel-mint: #E0FFF8;
+    --gold: #FFD700;
+    --dark-bg: #0D0A1A;
+    --dark-card: #14102A;
+    --dark-card2: #1C1535;
+    --text-main: #FAFAFF;
+    --text-muted: #B0A8D0;
+    --font-display: 'Bebas Neue', cursive;
+    --font-body: 'Nunito', sans-serif;
+    --font-serif: 'Nanum Myeongjo', serif;
+    --glow-pink: 0 0 20px rgba(255,45,120,0.5);
+    --glow-purple: 0 0 20px rgba(180,79,255,0.5);
+    --glow-cyan: 0 0 20px rgba(0,240,255,0.4);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--dark-bg);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* CUSTOM CURSOR */
+  body { cursor: none; }
+  #cursor {
+    width: 16px; height: 16px;
+    background: var(--neon-pink);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%,-50%);
+    transition: transform 0.1s, width 0.2s, height 0.2s, background 0.2s;
+    mix-blend-mode: difference;
+  }
+  #cursor-ring {
+    width: 36px; height: 36px;
+    border: 1.5px solid var(--neon-pink);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%,-50%);
+    transition: transform 0.15s ease-out, width 0.2s, height 0.2s;
+    opacity: 0.6;
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--dark-bg); }
+  ::-webkit-scrollbar-thumb { background: var(--neon-purple); border-radius: 2px; }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    height: 68px;
+    background: rgba(13,10,26,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(180,79,255,0.2);
+    transition: background 0.3s;
+  }
+  .logo {
+    font-family: var(--font-display);
+    font-size: 28px;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple), var(--neon-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .logo span {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 700;
+    display: block;
+    letter-spacing: 4px;
+    background: linear-gradient(90deg, var(--neon-purple), var(--neon-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: -6px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 2px;
+    background: var(--neon-pink);
+    transition: width 0.3s;
+    border-radius: 1px;
+  }
+  .nav-links a:hover { color: var(--text-main); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .nav-icon-btn {
+    background: none;
+    border: 1.5px solid rgba(180,79,255,0.3);
+    color: var(--text-main);
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    position: relative;
+  }
+  .nav-icon-btn:hover { border-color: var(--neon-pink); background: rgba(255,45,120,0.1); }
+  .cart-badge {
+    position: absolute;
+    top: -4px; right: -4px;
+    width: 16px; height: 16px;
+    background: var(--neon-pink);
+    border-radius: 50%;
+    font-size: 9px;
+    font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff;
+  }
+  .nav-search {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(180,79,255,0.2);
+    border-radius: 20px;
+    padding: 8px 16px;
+    color: var(--text-main);
+    font-family: var(--font-body);
+    font-size: 13px;
+    width: 200px;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .nav-search:focus { border-color: var(--neon-purple); background: rgba(180,79,255,0.08); }
+  .nav-search::placeholder { color: var(--text-muted); }
+
+  /* FLASH SALE TICKER */
+  .flash-ticker {
+    background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple));
+    height: 34px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    margin-top: 68px;
+  }
+  .ticker-content {
+    display: flex;
+    animation: ticker 25s linear infinite;
+    white-space: nowrap;
+    gap: 60px;
+  }
+  .ticker-item {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .ticker-star { color: var(--gold); margin: 0 8px; }
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* HERO */
+  #home {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: -34px;
+    padding-top: 102px;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-gradient {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(180,79,255,0.15) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 50% at 20% 60%, rgba(255,45,120,0.12) 0%, transparent 65%),
+                radial-gradient(ellipse 40% 40% at 80% 80%, rgba(0,240,255,0.08) 0%, transparent 60%);
+  }
+  .grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(180,79,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(180,79,255,0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .floating-shapes {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .shape {
+    position: absolute;
+    border-radius: 50%;
+    animation: float 8s ease-in-out infinite;
+    opacity: 0.15;
+  }
+  .shape-1 { width: 400px; height: 400px; background: var(--neon-purple); top: -100px; right: -50px; animation-delay: 0s; }
+  .shape-2 { width: 250px; height: 250px; background: var(--neon-pink); bottom: 50px; left: -80px; animation-delay: 3s; }
+  .shape-3 { width: 150px; height: 150px; background: var(--neon-cyan); top: 40%; left: 40%; animation-delay: 5s; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.05); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,45,120,0.15);
+    border: 1px solid rgba(255,45,120,0.4);
+    border-radius: 30px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--neon-pink);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    animation: fadeUp 0.6s ease;
+  }
+  .hero-tag .dot {
+    width: 6px; height: 6px;
+    background: var(--neon-pink);
+    border-radius: 50%;
+    animation: pulse 1.5s ease infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 7vw, 96px);
+    line-height: 0.95;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    animation: fadeUp 0.6s ease 0.1s both;
+  }
+  .hero-title .line-1 { color: var(--text-main); display: block; }
+  .hero-title .line-2 {
+    display: block;
+    background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-title .line-3 { color: var(--neon-cyan); display: block; }
+  .hero-sub {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    max-width: 460px;
+    animation: fadeUp 0.6s ease 0.2s both;
+  }
+  .hero-sub strong { color: var(--text-main); }
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s ease 0.3s both;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+    color: #fff;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: var(--glow-pink);
+  }
+  .btn-primary:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 0 30px rgba(255,45,120,0.6); }
+  .btn-outline {
+    background: transparent;
+    color: var(--text-main);
+    border: 1.5px solid rgba(255,255,255,0.2);
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--neon-purple); background: rgba(180,79,255,0.1); }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 48px;
+    animation: fadeUp 0.6s ease 0.4s both;
+  }
+  .stat { }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 36px;
+    line-height: 1;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .stat-label { font-size: 12px; color: var(--text-muted); font-weight: 600; letter-spacing: 1px; margin-top: 4px; }
+
+  /* Hero visual side */
+  .hero-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeUp 0.6s ease 0.2s both;
+  }
+  .hero-card-stack {
+    position: relative;
+    width: 340px;
+    height: 440px;
+  }
+  .hero-card {
+    position: absolute;
+    width: 220px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--dark-card);
+    border: 1px solid rgba(180,79,255,0.25);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .hcard-1 { top: 0; left: 0; transform: rotate(-8deg); z-index: 1; animation: cardFloat 6s ease-in-out infinite; }
+  .hcard-2 { top: 60px; left: 80px; z-index: 3; box-shadow: 0 0 40px rgba(180,79,255,0.3); }
+  .hcard-3 { top: 20px; right: 0; transform: rotate(6deg); z-index: 2; animation: cardFloat 7s ease-in-out 2s infinite; }
+  @keyframes cardFloat { 0%,100%{transform:rotate(-8deg) translateY(0)} 50%{transform:rotate(-8deg) translateY(-12px)} }
+
+  .hcard-img {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hcard-1 .hcard-img { background: linear-gradient(135deg, #2a0a4a, #4a1080); }
+  .hcard-2 .hcard-img { background: linear-gradient(135deg, #1a0a3a, #3a0060); }
+  .hcard-3 .hcard-img { background: linear-gradient(135deg, #0a2a3a, #1a4a6a); }
+  .hcard-body { padding: 14px; }
+  .hcard-title { font-size: 13px; font-weight: 800; color: var(--text-main); }
+  .hcard-price { font-size: 16px; font-weight: 900; color: var(--neon-pink); margin-top: 4px; }
+  .hcard-group { font-size: 11px; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; }
+
+  .badge-new {
+    position: absolute;
+    top: 10px; right: 10px;
+    background: var(--neon-pink);
+    color: #fff;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+  }
+  .badge-hot {
+    position: absolute;
+    top: 10px; right: 10px;
+    background: var(--gold);
+    color: #000;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+  }
+  .floating-badge {
+    position: absolute;
+    background: var(--dark-card2);
+    border: 1px solid rgba(0,240,255,0.3);
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: var(--glow-cyan);
+    animation: cardFloat 5s ease-in-out infinite;
+    white-space: nowrap;
+  }
+  .fbadge-1 { bottom: 30px; left: -20px; animation-delay: 1s; }
+  .fbadge-2 { top: -10px; right: -10px; animation-delay: 3s; }
+  .fbadge-icon { font-size: 18px; }
+  .fbadge-text { font-weight: 700; font-size: 11px; }
+  .fbadge-sub { font-size: 10px; color: var(--neon-cyan); }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+
+  /* SECTION STYLES */
+  section { padding: 100px 5%; max-width: 1400px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--neon-pink);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::before {
+    content: '';
+    width: 30px;
+    height: 2px;
+    background: var(--neon-pink);
+    border-radius: 1px;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+  }
+  .section-title .highlight {
+    background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .section-sub { color: var(--text-muted); font-size: 16px; max-width: 520px; line-height: 1.7; margin-bottom: 56px; }
+
+  /* FLASH SALE SECTION */
+  #flash-sale {
+    max-width: 100%;
+    padding: 0 5%;
+    background: linear-gradient(135deg, rgba(255,45,120,0.08), rgba(180,79,255,0.08));
+    border-top: 1px solid rgba(255,45,120,0.15);
+    border-bottom: 1px solid rgba(255,45,120,0.15);
+  }
+  .flash-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 0;
+  }
+  .flash-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .flash-title-row { display: flex; align-items: center; gap: 20px; }
+  .flash-icon {
+    font-size: 48px;
+    animation: wobble 2s ease-in-out infinite;
+  }
+  @keyframes wobble { 0%,100%{transform:rotate(0)} 25%{transform:rotate(-10deg)} 75%{transform:rotate(10deg)} }
+  .flash-sale-title {
+    font-family: var(--font-display);
+    font-size: 48px;
+    line-height: 1;
+    background: linear-gradient(90deg, var(--neon-pink), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .flash-sub { font-size: 13px; color: var(--text-muted); }
+  .countdown {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .count-box {
+    background: var(--dark-card);
+    border: 1px solid rgba(255,45,120,0.3);
+    border-radius: 10px;
+    padding: 10px 14px;
+    text-align: center;
+    min-width: 56px;
+    box-shadow: var(--glow-pink);
+  }
+  .count-num {
+    font-family: var(--font-display);
+    font-size: 32px;
+    color: var(--neon-pink);
+    line-height: 1;
+  }
+  .count-label { font-size: 10px; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; }
+  .count-sep { font-family: var(--font-display); font-size: 28px; color: var(--neon-pink); }
+
+  .flash-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .flash-card {
+    background: var(--dark-card);
+    border: 1px solid rgba(255,45,120,0.2);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+    cursor: pointer;
+    position: relative;
+  }
+  .flash-card:hover { transform: translateY(-6px); border-color: var(--neon-pink); box-shadow: var(--glow-pink); }
+  .flash-card-img {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+    position: relative;
+  }
+  .flash-discount {
+    position: absolute;
+    top: 12px; left: 12px;
+    background: var(--neon-pink);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 8px;
+  }
+  .stock-bar-wrap { position: absolute; bottom: 0; left: 0; right: 0; padding: 0 12px 6px; }
+  .stock-bar-label { font-size: 10px; color: #fff; font-weight: 700; margin-bottom: 3px; }
+  .stock-bar { height: 4px; background: rgba(255,255,255,0.2); border-radius: 2px; }
+  .stock-bar-fill { height: 4px; background: var(--neon-pink); border-radius: 2px; }
+  .flash-card-body { padding: 14px 16px; }
+  .flash-card-group { font-size: 10px; color: var(--neon-purple); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+  .flash-card-name { font-size: 14px; font-weight: 800; margin: 4px 0; }
+  .flash-price-row { display: flex; align-items: center; gap: 10px; }
+  .price-new { font-size: 20px; font-weight: 900; color: var(--neon-pink); }
+  .price-old { font-size: 14px; color: var(--text-muted); text-decoration: line-through; }
+  .flash-add-btn {
+    width: 100%;
+    background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple));
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 13px;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .flash-add-btn:hover { opacity: 0.9; transform: scale(1.02); }
+
+  /* SHOP SECTION */
+  #shop { max-width: 1400px; }
+  .category-tabs {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+  .cat-tab {
+    background: var(--dark-card);
+    border: 1.5px solid rgba(180,79,255,0.2);
+    border-radius: 30px;
+    padding: 10px 24px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .cat-tab:hover, .cat-tab.active {
+    background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+    color: #fff;
+    border-color: transparent;
+    box-shadow: var(--glow-pink);
+  }
+  .filter-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .filter-select {
+    background: var(--dark-card);
+    border: 1px solid rgba(180,79,255,0.2);
+    border-radius: 8px;
+    color: var(--text-muted);
+    padding: 8px 16px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    cursor: pointer;
+    outline: none;
+  }
+  .filter-select:focus { border-color: var(--neon-purple); }
+  .filter-select option { background: var(--dark-card); }
+  .sort-label { font-size: 13px; color: var(--text-muted); }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+  }
+  .product-card {
+    background: var(--dark-card);
+    border: 1px solid rgba(180,79,255,0.12);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    position: relative;
+  }
+  .product-card:hover { transform: translateY(-8px); border-color: rgba(180,79,255,0.4); box-shadow: 0 16px 40px rgba(0,0,0,0.4), var(--glow-purple); }
+  .prod-img {
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .prod-wishlist {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: rgba(13,10,26,0.7);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+    width: 34px; height: 34px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+    backdrop-filter: blur(4px);
+  }
+  .prod-wishlist:hover { background: rgba(255,45,120,0.3); }
+  .prod-wishlist.active { background: rgba(255,45,120,0.5); }
+  .prod-badge {
+    position: absolute;
+    top: 12px; left: 12px;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    text-transform: uppercase;
+  }
+  .badge-limited { background: rgba(255,215,0,0.2); color: var(--gold); border: 1px solid rgba(255,215,0,0.4); }
+  .badge-bestseller { background: rgba(0,240,255,0.15); color: var(--neon-cyan); border: 1px solid rgba(0,240,255,0.3); }
+  .badge-restock { background: rgba(180,79,255,0.2); color: var(--neon-purple); border: 1px solid rgba(180,79,255,0.4); }
+
+  .prod-body { padding: 16px; }
+  .prod-group { font-size: 10px; color: var(--neon-purple); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+  .prod-name { font-size: 15px; font-weight: 800; margin-bottom: 6px; line-height: 1.3; }
+  .prod-type { font-size: 11px; color: var(--text-muted); margin-bottom: 12px; }
+  .prod-rating { display: flex; align-items: center; gap: 6px; margin-bottom: 12px; }
+  .stars { color: var(--gold); font-size: 12px; letter-spacing: 1px; }
+  .rating-count { font-size: 11px; color: var(--text-muted); }
+  .prod-footer { display: flex; align-items: center; justify-content: space-between; }
+  .prod-price { font-size: 22px; font-weight: 900; color: var(--text-main); }
+  .prod-price span { font-size: 14px; color: var(--neon-pink); }
+  .add-cart-btn {
+    background: transparent;
+    border: 1.5px solid var(--neon-purple);
+    color: var(--neon-purple);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .add-cart-btn:hover { background: var(--neon-purple); color: #fff; box-shadow: var(--glow-purple); }
+  .add-cart-btn.added { background: var(--neon-pink); border-color: var(--neon-pink); color: #fff; }
+
+  /* GROUPS MARQUEE */
+  .groups-section {
+    overflow: hidden;
+    padding: 60px 0;
+    border-top: 1px solid rgba(180,79,255,0.1);
+    border-bottom: 1px solid rgba(180,79,255,0.1);
+    background: rgba(180,79,255,0.03);
+  }
+  .marquee-wrap { display: flex; gap: 0; }
+  .marquee-track {
+    display: flex;
+    gap: 40px;
+    animation: marquee 20s linear infinite;
+    white-space: nowrap;
+  }
+  @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+  .group-chip {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--dark-card);
+    border: 1px solid rgba(180,79,255,0.2);
+    border-radius: 40px;
+    padding: 10px 24px;
+    font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    flex-shrink: 0;
+  }
+  .group-chip:hover { border-color: var(--neon-pink); }
+  .group-emoji { font-size: 20px; }
+
+  /* ABOUT */
+  #about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1300px;
+  }
+  .about-visual {
+    position: relative;
+  }
+  .about-card-main {
+    background: var(--dark-card);
+    border: 1px solid rgba(180,79,255,0.25);
+    border-radius: 24px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-card-main::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(180,79,255,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .about-big-emoji { font-size: 80px; margin-bottom: 16px; display: block; }
+  .about-card-title { font-family: var(--font-display); font-size: 32px; margin-bottom: 8px; }
+  .about-card-sub { color: var(--text-muted); font-size: 15px; line-height: 1.7; }
+  .about-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+  .about-tag {
+    background: rgba(180,79,255,0.12);
+    border: 1px solid rgba(180,79,255,0.25);
+    color: var(--neon-purple);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .about-mini-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+  .about-mini {
+    background: var(--dark-card2);
+    border: 1px solid rgba(0,240,255,0.15);
+    border-radius: 14px;
+    padding: 16px;
+    text-align: center;
+  }
+  .about-mini-num { font-family: var(--font-display); font-size: 28px; color: var(--neon-cyan); }
+  .about-mini-label { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+  .about-text {}
+  .about-story {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 32px;
+    font-style: italic;
+  }
+  .about-story strong { color: var(--text-main); font-style: normal; }
+  .about-perks { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+  .about-perk { display: flex; align-items: flex-start; gap: 14px; }
+  .perk-icon { font-size: 22px; margin-top: 2px; }
+  .perk-text strong { display: block; font-weight: 800; font-size: 15px; }
+  .perk-text span { color: var(--text-muted); font-size: 13px; }
+
+  /* DELIVERY */
+  .delivery-section {
+    background: linear-gradient(135deg, rgba(0,240,255,0.05), rgba(180,79,255,0.05));
+    border-top: 1px solid rgba(0,240,255,0.1);
+    border-bottom: 1px solid rgba(0,240,255,0.1);
+    padding: 80px 5%;
+  }
+  .delivery-inner { max-width: 1300px; margin: 0 auto; }
+  .delivery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+  .delivery-card {
+    background: var(--dark-card);
+    border: 1px solid rgba(0,240,255,0.12);
+    border-radius: 16px;
+    padding: 28px;
+    text-align: center;
+    transition: border-color 0.2s, transform 0.3s;
+  }
+  .delivery-card:hover { border-color: var(--neon-cyan); transform: translateY(-4px); }
+  .delivery-icon { font-size: 40px; margin-bottom: 16px; }
+  .delivery-title { font-weight: 800; font-size: 15px; margin-bottom: 6px; }
+  .delivery-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+  /* PAYMENT */
+  .payment-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 48px;
+    align-items: center;
+  }
+  .pay-badge {
+    background: var(--dark-card);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .pay-label { font-size: 13px; color: var(--text-muted); }
+
+  /* CONTACT */
+  #contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    max-width: 1300px;
+  }
+  .contact-info { }
+  .contact-cards { display: flex; flex-direction: column; gap: 16px; }
+  .contact-card {
+    background: var(--dark-card);
+    border: 1px solid rgba(180,79,255,0.15);
+    border-radius: 16px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: border-color 0.2s;
+    text-decoration: none;
+    color: var(--text-main);
+    cursor: pointer;
+  }
+  .contact-card:hover { border-color: var(--neon-purple); }
+  .contact-icon { font-size: 28px; }
+  .contact-type { font-size: 11px; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; }
+  .contact-val { font-weight: 800; font-size: 15px; margin-top: 2px; }
+  .whatsapp-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    border: none;
+    border-radius: 14px;
+    padding: 18px 28px;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 800;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 20px rgba(37,211,102,0.3);
+  }
+  .whatsapp-btn:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(37,211,102,0.5); }
+  .wa-icon { font-size: 22px; }
+
+  .contact-form {}
+  .form-group { margin-bottom: 20px; }
+  .form-label { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; display: block; }
+  .form-input, .form-textarea, .form-select2 {
+    width: 100%;
+    background: var(--dark-card);
+    border: 1px solid rgba(180,79,255,0.2);
+    border-radius: 12px;
+    color: var(--text-main);
+    font-family: var(--font-body);
+    font-size: 14px;
+    padding: 14px 18px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-input:focus, .form-textarea:focus { border-color: var(--neon-purple); }
+  .form-input::placeholder, .form-textarea::placeholder { color: var(--text-muted); }
+  .form-textarea { resize: vertical; min-height: 120px; }
+  .form-submit {
+    width: 100%;
+    background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 800;
+    padding: 16px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .form-submit:hover { transform: translateY(-2px); box-shadow: var(--glow-pink); }
+
+  /* CART PANEL */
+  .cart-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    backdrop-filter: blur(4px);
+  }
+  .cart-overlay.open { opacity: 1; pointer-events: all; }
+  .cart-panel {
+    position: fixed;
+    top: 0; right: 0;
+    width: 420px;
+    height: 100vh;
+    background: var(--dark-card);
+    border-left: 1px solid rgba(180,79,255,0.2);
+    z-index: 2001;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .cart-overlay.open .cart-panel { transform: translateX(0); }
+  .cart-header {
+    padding: 24px;
+    border-bottom: 1px solid rgba(180,79,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cart-title { font-family: var(--font-display); font-size: 28px; letter-spacing: 1px; }
+  .cart-close {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-main);
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .cart-items { flex: 1; overflow-y: auto; padding: 20px 24px; }
+  .cart-item {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .cart-item-img { font-size: 36px; width: 56px; height: 56px; background: var(--dark-card2); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .cart-item-info { flex: 1; }
+  .cart-item-name { font-weight: 800; font-size: 13px; }
+  .cart-item-group { font-size: 11px; color: var(--neon-purple); }
+  .cart-item-price { font-weight: 900; color: var(--neon-pink); }
+  .cart-item-qty { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+  .qty-btn { background: var(--dark-bg); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; width: 24px; height: 24px; color: var(--text-main); cursor: pointer; font-size: 14px; }
+  .qty-num { font-size: 13px; font-weight: 700; min-width: 20px; text-align: center; }
+  .cart-footer { padding: 20px 24px; border-top: 1px solid rgba(180,79,255,0.15); }
+  .cart-total-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .cart-total-label { font-size: 14px; color: var(--text-muted); }
+  .cart-total-val { font-family: var(--font-display); font-size: 28px; color: var(--neon-pink); }
+  .cart-shipping-note { font-size: 12px; color: var(--neon-cyan); margin-bottom: 16px; }
+  .checkout-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 800;
+    padding: 16px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .checkout-btn:hover { opacity: 0.9; }
+  .payment-methods { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+  .pay-chip { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 4px 10px; font-size: 11px; color: var(--text-muted); }
+
+  /* PRODUCT MODAL */
+  .prod-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    backdrop-filter: blur(8px);
+    padding: 20px;
+  }
+  .prod-modal-overlay.open { opacity: 1; pointer-events: all; }
+  .prod-modal {
+    background: var(--dark-card);
+    border: 1px solid rgba(180,79,255,0.3);
+    border-radius: 24px;
+    max-width: 780px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    transform: scale(0.9);
+    transition: transform 0.3s;
+  }
+  .prod-modal-overlay.open .prod-modal { transform: scale(1); }
+  .modal-img-side {
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    border-radius: 24px 0 0 24px;
+    position: relative;
+  }
+  .modal-close-btn {
+    position: absolute;
+    top: 16px; right: 16px;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50%;
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .modal-info-side { padding: 32px; }
+  .modal-group { font-size: 11px; color: var(--neon-purple); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+  .modal-name { font-family: var(--font-display); font-size: 32px; line-height: 1.1; margin-bottom: 4px; }
+  .modal-type { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
+  .modal-price { font-size: 36px; font-weight: 900; color: var(--neon-pink); margin-bottom: 8px; }
+  .modal-rating-row { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+  .modal-reviews { font-size: 13px; color: var(--text-muted); }
+  .modal-desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 24px; }
+  .modal-variants { margin-bottom: 20px; }
+  .modal-variant-label { font-size: 12px; font-weight: 700; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+  .modal-variant-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .variant-chip {
+    background: var(--dark-card2);
+    border: 1.5px solid rgba(180,79,255,0.25);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .variant-chip.selected { border-color: var(--neon-purple); background: rgba(180,79,255,0.2); color: var(--neon-purple); }
+  .modal-actions { display: flex; gap: 10px; }
+  .modal-add-btn {
+    flex: 1;
+    background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 800;
+    padding: 14px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .modal-wishlist-btn {
+    background: transparent;
+    border: 1.5px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    color: var(--text-main);
+    font-family: var(--font-body);
+    font-size: 14px;
+    padding: 14px 18px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .modal-wishlist-btn:hover { border-color: var(--neon-pink); }
+  .reviews-section { padding: 24px 32px; border-top: 1px solid rgba(255,255,255,0.05); grid-column: 1/-1; }
+  .reviews-title { font-weight: 800; font-size: 16px; margin-bottom: 16px; }
+  .review-item { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .review-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .reviewer-name { font-weight: 700; font-size: 13px; }
+  .review-stars { color: var(--gold); font-size: 11px; }
+  .review-text { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+  /* NOTIFY BANNER */
+  .notify-banner {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--dark-card);
+    border: 1px solid rgba(0,240,255,0.3);
+    border-radius: 16px;
+    padding: 16px 20px;
+    max-width: 300px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5), var(--glow-cyan);
+    z-index: 1500;
+    transform: translateX(120%);
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+  }
+  .notify-banner.show { transform: translateX(0); }
+  .notify-inner { display: flex; gap: 12px; align-items: flex-start; }
+  .notify-icon { font-size: 28px; }
+  .notify-title { font-weight: 800; font-size: 13px; color: var(--neon-cyan); }
+  .notify-msg { font-size: 12px; color: var(--text-muted); margin-top: 2px; line-height: 1.5; }
+  .notify-close { position: absolute; top: 10px; right: 12px; font-size: 14px; color: var(--text-muted); cursor: pointer; }
+
+  /* INSTAGRAM SECTION */
+  .insta-section { padding: 80px 5%; }
+  .insta-inner { max-width: 1300px; margin: 0 auto; }
+  .insta-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-top: 40px; border-radius: 16px; overflow: hidden; }
+  .insta-item {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--dark-card2);
+  }
+  .insta-item::after {
+    content: '♡ 2.4K';
+    position: absolute;
+    inset: 0;
+    background: rgba(180,79,255,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .insta-item:hover::after { opacity: 1; }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark-card);
+    border-top: 1px solid rgba(180,79,255,0.15);
+    padding: 60px 5% 30px;
+  }
+  .footer-inner { max-width: 1300px; margin: 0 auto; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+  .footer-brand { }
+  .footer-logo { font-family: var(--font-display); font-size: 32px; background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .footer-tagline { font-size: 13px; color: var(--text-muted); margin: 8px 0 20px; line-height: 1.7; max-width: 280px; }
+  .social-row { display: flex; gap: 10px; }
+  .social-btn {
+    width: 36px; height: 36px;
+    background: rgba(180,79,255,0.1);
+    border: 1px solid rgba(180,79,255,0.25);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .social-btn:hover { background: rgba(180,79,255,0.25); }
+  .footer-col-title { font-weight: 800; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; color: var(--text-main); }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--neon-purple); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: gap; }
+  .footer-copy { font-size: 12px; color: var(--text-muted); }
+  .footer-love { color: var(--neon-pink); }
+  .footer-tags { display: flex; gap: 10px; flex-wrap: wrap; }
+  .footer-tag { font-size: 11px; color: var(--text-muted); }
+
+  /* RESTOCK MODAL */
+  .restock-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 4000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    backdrop-filter: blur(6px);
+  }
+  .restock-modal-overlay.open { opacity: 1; pointer-events: all; }
+  .restock-modal {
+    background: var(--dark-card);
+    border: 1px solid rgba(180,79,255,0.3);
+    border-radius: 24px;
+    padding: 40px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    transform: scale(0.9);
+    transition: transform 0.3s;
+    position: relative;
+  }
+  .restock-modal-overlay.open .restock-modal { transform: scale(1); }
+  .restock-icon { font-size: 60px; margin-bottom: 16px; display: block; }
+  .restock-title { font-family: var(--font-display); font-size: 32px; margin-bottom: 8px; }
+  .restock-sub { color: var(--text-muted); font-size: 14px; line-height: 1.7; margin-bottom: 24px; }
+  .restock-input-row { display: flex; gap: 10px; }
+  .restock-input { flex: 1; background: var(--dark-card2); border: 1px solid rgba(180,79,255,0.2); border-radius: 10px; color: var(--text-main); font-family: var(--font-body); font-size: 14px; padding: 12px 16px; outline: none; }
+  .restock-btn { background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple)); border: none; border-radius: 10px; color: #fff; font-family: var(--font-body); font-weight: 800; font-size: 13px; padding: 12px 20px; cursor: pointer; }
+  .restock-close { position: absolute; top: 16px; right: 16px; background: none; border: none; color: var(--text-muted); font-size: 20px; cursor: pointer; }
+
+  /* ANIMATIONS & SCROLL */
+  .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* MOBILE MENU */
+  .mobile-menu-btn { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 5px; }
+  .menu-line { width: 24px; height: 2px; background: var(--text-main); border-radius: 1px; transition: all 0.3s; }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .mobile-menu-btn { display: flex; }
+    .hero-content { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    #about { grid-template-columns: 1fr; }
+    #contact { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .insta-grid { grid-template-columns: repeat(3, 1fr); }
+    .prod-modal { grid-template-columns: 1fr; }
+    .modal-img-side { border-radius: 24px 24px 0 0; }
+    .cart-panel { width: 100%; }
+    nav { padding: 0 4%; }
+    section { padding: 60px 4%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="logo">Seoul Vibes<span>Mumbai · K-pop merch store</span></div>
+  <ul class="nav-links">
+    <li><a href="#home" onclick="smoothScroll('home')">Home</a></li>
+    <li><a href="#flash-sale" onclick="smoothScroll('flash-sale')">Flash Sale 🔥</a></li>
+    <li><a href="#shop" onclick="smoothScroll('shop')">Shop</a></li>
+    <li><a href="#about" onclick="smoothScroll('about')">About</a></li>
+    <li><a href="#contact" onclick="smoothScroll('contact')">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <input class="nav-search" type="text" placeholder="Search BTS, BLACKPINK..." id="searchInput">
+    <button class="nav-icon-btn" onclick="toggleWishlist()" title="Wishlist">
+      <span>♡</span>
+    </button>
+    <button class="nav-icon-btn" onclick="toggleCart()" title="Cart">
+      <span>🛒</span>
+      <span class="cart-badge" id="cartBadge">0</span>
+    </button>
+  </div>
+  <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+    <div class="menu-line"></div>
+    <div class="menu-line"></div>
+    <div class="menu-line"></div>
+  </button>
+</nav>
+
+<!-- FLASH TICKER -->
+<div class="flash-ticker">
+  <div class="ticker-content" id="ticker">
+    <span class="ticker-item">⚡ Flash Sale Live Now — Up to 40% Off</span>
+    <span class="ticker-star">★</span>
+    <span class="ticker-item">🚀 Free Shipping on Orders Above ₹999</span>
+    <span class="ticker-star">★</span>
+    <span class="ticker-item">💜 New Stray Kids Album Merch Just Dropped</span>
+    <span class="ticker-star">★</span>
+    <span class="ticker-item">🎁 COD Available Pan India</span>
+    <span class="ticker-star">★</span>
+    <span class="ticker-item">🇮🇳 Desi K-pop stans, yeh wali jagah tumhari hai!</span>
+    <span class="ticker-star">★</span>
+    <span class="ticker-item">⚡ Flash Sale Live Now — Up to 40% Off</span>
+    <span class="ticker-star">★</span>
+    <span class="ticker-item">🚀 Free Shipping on Orders Above ₹999</span>
+    <span class="ticker-star">★</span>
+    <span class="ticker-item">💜 New Stray Kids Album Merch Just Dropped</span>
+    <span class="ticker-star">★</span>
+    <span class="ticker-item">🎁 COD Available Pan India</span>
+    <span class="ticker-star">★</span>
+    <span class="ticker-item">🇮🇳 Desi K-pop stans, yeh wali jagah tumhari hai!</span>
+    <span class="ticker-star">★</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg">
+    <div class="hero-gradient"></div>
+    <div class="grid-lines"></div>
+    <div class="floating-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-tag">
+        <div class="dot"></div>
+        For Desi K-pop Stans 💜
+      </div>
+      <h1 class="hero-title">
+        <span class="line-1">MUMBAI'S</span>
+        <span class="line-2">ULTIMATE</span>
+        <span class="line-3">K-POP STORE</span>
+      </h1>
+      <p class="hero-sub">
+        Photocards, albums, posters, apparel — <strong>sab kuch milega yahan.</strong>
+        Authentic merch, delivered across India with love. 🫶
+      </p>
+      <div class="hero-cta">
+        <button class="btn-primary" onclick="smoothScroll('shop')">Shop Now ✦</button>
+        <button class="btn-outline" onclick="smoothScroll('flash-sale')">Flash Sale 🔥</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">12K+</div>
+          <div class="stat-label">Happy Stans</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Products</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">48hr</div>
+          <div class="stat-label">Mumbai Delivery</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-card-stack">
+        <div class="hero-card hcard-1">
+          <div class="hcard-img" style="background:linear-gradient(135deg,#2a0a4a,#4a1080)">
+            <span>💿</span>
+            <span class="badge-new">New</span>
+          </div>
+          <div class="hcard-body">
+            <div class="hcard-group">BTS</div>
+            <div class="hcard-title">Butter — Photobook Edition</div>
+            <div class="hcard-price">₹2,499</div>
+          </div>
+        </div>
+        <div class="hero-card hcard-2">
+          <div class="hcard-img" style="background:linear-gradient(135deg,#1a0030,#6a0070)">
+            <span>🪪</span>
+            <span class="badge-hot">🔥 Hot</span>
+          </div>
+          <div class="hcard-body">
+            <div class="hcard-group">BLACKPINK</div>
+            <div class="hcard-title">Born Pink Photocard Set</div>
+            <div class="hcard-price">₹799</div>
+          </div>
+        </div>
+        <div class="hero-card hcard-3">
+          <div class="hcard-img" style="background:linear-gradient(135deg,#0a1a3a,#1a4a8a)">
+            <span>🧥</span>
+          </div>
+          <div class="hcard-body">
+            <div class="hcard-group">Stray Kids</div>
+            <div class="hcard-title">SKZ Hoodie — Black ver.</div>
+            <div class="hcard-price">₹3,999</div>
+          </div>
+        </div>
+
+        <div class="floating-badge fbadge-1">
+          <div class="fbadge-icon">📦</div>
+          <div>
+            <div class="fbadge-text">Mumbai Delivery</div>
+            <div class="fbadge-sub">48 hours</div>
+          </div>
+        </div>
+        <div class="floating-badge fbadge-2">
+          <div class="fbadge-icon">⭐</div>
+          <div>
+            <div class="fbadge-text">4.9/5 Rating</div>
+            <div class="fbadge-sub">12K+ reviews</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GROUPS MARQUEE -->
+<div class="groups-section">
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <div class="group-chip"><span class="group-emoji">💜</span> BTS</div>
+      <div class="group-chip"><span class="group-emoji">🖤</span> BLACKPINK</div>
+      <div class="group-chip"><span class="group-emoji">🦋</span> Stray Kids</div>
+      <div class="group-chip"><span class="group-emoji">🌸</span> TWICE</div>
+      <div class="group-chip"><span class="group-emoji">🌙</span> EXO</div>
+      <div class="group-chip"><span class="group-emoji">✨</span> aespa</div>
+      <div class="group-chip"><span class="group-emoji">💙</span> Seventeen</div>
+      <div class="group-chip"><span class="group-emoji">🔥</span> ATEEZ</div>
+      <div class="group-chip"><span class="group-emoji">🌺</span> IVE</div>
+      <div class="group-chip"><span class="group-emoji">⚡</span> NCT127</div>
+      <div class="group-chip"><span class="group-emoji">🌙</span> TXT</div>
+      <div class="group-chip"><span class="group-emoji">🌸</span> NewJeans</div>
+      <div class="group-chip"><span class="group-emoji">💜</span> BTS</div>
+      <div class="group-chip"><span class="group-emoji">🖤</span> BLACKPINK</div>
+      <div class="group-chip"><span class="group-emoji">🦋</span> Stray Kids</div>
+      <div class="group-chip"><span class="group-emoji">🌸</span> TWICE</div>
+      <div class="group-chip"><span class="group-emoji">🌙</span> EXO</div>
+      <div class="group-chip"><span class="group-emoji">✨</span> aespa</div>
+      <div class="group-chip"><span class="group-emoji">💙</span> Seventeen</div>
+      <div class="group-chip"><span class="group-emoji">🔥</span> ATEEZ</div>
+      <div class="group-chip"><span class="group-emoji">🌺</span> IVE</div>
+      <div class="group-chip"><span class="group-emoji">⚡</span> NCT127</div>
+      <div class="group-chip"><span class="group-emoji">🌙</span> TXT</div>
+      <div class="group-chip"><span class="group-emoji">🌸</span> NewJeans</div>
+    </div>
+  </div>
+</div>
+
+<!-- FLASH SALE -->
+<div id="flash-sale">
+  <div class="flash-inner">
+    <div class="flash-header">
+      <div class="flash-title-row">
+        <div class="flash-icon">⚡</div>
+        <div>
+          <div class="flash-sale-title">FLASH DROPS</div>
+          <div class="flash-sub">Limited stock — jaldi karo, stan!</div>
+        </div>
+      </div>
+      <div class="countdown">
+        <div class="count-box">
+          <div class="count-num" id="cd-h">05</div>
+          <div class="count-label">Hours</div>
+        </div>
+        <div class="count-sep">:</div>
+        <div class="count-box">
+          <div class="count-num" id="cd-m">23</div>
+          <div class="count-label">Mins</div>
+        </div>
+        <div class="count-sep">:</div>
+        <div class="count-box">
+          <div class="count-num" id="cd-s">41</div>
+          <div class="count-label">Secs</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flash-grid">
+      <div class="flash-card" onclick="openProduct(0)">
+        <div class="flash-card-img" style="background:linear-gradient(135deg,#1a0030,#5a0080)">
+          💿
+          <span class="flash-discount">-40%</span>
+          <div class="stock-bar-wrap">
+            <div class="stock-bar-label">Only 6 left!</div>
+            <div class="stock-bar"><div class="stock-bar-fill" style="width:20%"></div></div>
+          </div>
+        </div>
+        <div class="flash-card-body">
+          <div class="flash-card-group">BTS</div>
+          <div class="flash-card-name">Map of the Soul: 7 Album</div>
+          <div class="flash-price-row">
+            <span class="price-new">₹1,499</span>
+            <span class="price-old">₹2,499</span>
+          </div>
+          <button class="flash-add-btn" onclick="event.stopPropagation();addToCart('Map of Soul: 7','BTS','💿',1499)">Add to Cart 🛒</button>
+        </div>
+      </div>
+
+      <div class="flash-card" onclick="openProduct(1)">
+        <div class="flash-card-img" style="background:linear-gradient(135deg,#0a1a3a,#1a6a90)">
+          🪪
+          <span class="flash-discount">-35%</span>
+          <div class="stock-bar-wrap">
+            <div class="stock-bar-label">12 remaining</div>
+            <div class="stock-bar"><div class="stock-bar-fill" style="width:40%"></div></div>
+          </div>
+        </div>
+        <div class="flash-card-body">
+          <div class="flash-card-group">BLACKPINK</div>
+          <div class="flash-card-name">Pink Venom Photocard Bundle</div>
+          <div class="flash-price-row">
+            <span class="price-new">₹519</span>
+            <span class="price-old">₹799</span>
+          </div>
+          <button class="flash-add-btn" onclick="event.stopPropagation();addToCart('Pink Venom Photocards','BLACKPINK','🪪',519)">Add to Cart 🛒</button>
+        </div>
+      </div>
+
+      <div class="flash-card" onclick="openProduct(2)">
+        <div class="flash-card-img" style="background:linear-gradient(135deg,#0a2a1a,#0a5a30)">
+          🧢
+          <span class="flash-discount">-30%</span>
+          <div class="stock-bar-wrap">
+            <div class="stock-bar-label">3 left — hurry!</div>
+            <div class="stock-bar"><div class="stock-bar-fill" style="width:10%"></div></div>
+          </div>
+        </div>
+        <div class="flash-card-body">
+          <div class="flash-card-group">Stray Kids</div>
+          <div class="flash-card-name">Miroh Tour Cap — Official</div>
+          <div class="flash-price-row">
+            <span class="price-new">₹1,399</span>
+            <span class="price-old">₹1,999</span>
+          </div>
+          <button class="flash-add-btn" onclick="event.stopPropagation();addToCart('Miroh Tour Cap','Stray Kids','🧢',1399)">Add to Cart 🛒</button>
+        </div>
+      </div>
+
+      <div class="flash-card" onclick="openProduct(3)">
+        <div class="flash-card-img" style="background:linear-gradient(135deg,#2a1a0a,#6a3010)">
+          🖼️
+          <span class="flash-discount">-25%</span>
+          <div class="stock-bar-wrap">
+            <div class="stock-bar-label">18 remaining</div>
+            <div class="stock-bar"><div class="stock-bar-fill" style="width:60%"></div></div>
+          </div>
+        </div>
+        <div class="flash-card-body">
+          <div class="flash-card-group">TWICE</div>
+          <div class="flash-card-name">Ready to Be Poster Set (A2)</div>
+          <div class="flash-price-row">
+            <span class="price-new">₹449</span>
+            <span class="price-old">₹599</span>
+          </div>
+          <button class="flash-add-btn" onclick="event.stopPropagation();addToCart('Ready to Be Posters','TWICE','🖼️',449)">Add to Cart 🛒</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SHOP -->
+<section id="shop">
+  <div class="section-label">Shop</div>
+  <h2 class="section-title">Your <span class="highlight">Bias's</span> Faves</h2>
+  <p class="section-sub">Albums, photocards, posters, apparel — desi stans ke liye specially curated merch. 100% authentic.</p>
+
+  <div class="category-tabs">
+    <button class="cat-tab active" onclick="filterCat(this,'all')">✦ All Products</button>
+    <button class="cat-tab" onclick="filterCat(this,'album')">💿 Albums</button>
+    <button class="cat-tab" onclick="filterCat(this,'photocard')">🪪 Photocards</button>
+    <button class="cat-tab" onclick="filterCat(this,'poster')">🖼️ Posters</button>
+    <button class="cat-tab" onclick="filterCat(this,'apparel')">🧥 Apparel</button>
+    <button class="cat-tab" onclick="filterCat(this,'accessory')">💎 Accessories</button>
+  </div>
+
+  <div class="filter-row">
+    <span class="sort-label">Filter by Group:</span>
+    <select class="filter-select" onchange="filterByGroup(this.value)">
+      <option value="all">All Groups</option>
+      <option value="BTS">BTS</option>
+      <option value="BLACKPINK">BLACKPINK</option>
+      <option value="Stray Kids">Stray Kids</option>
+      <option value="TWICE">TWICE</option>
+      <option value="aespa">aespa</option>
+      <option value="Seventeen">Seventeen</option>
+    </select>
+    <select class="filter-select" onchange="sortProducts(this.value)">
+      <option value="popular">Most Popular</option>
+      <option value="low">Price: Low to High</option>
+      <option value="high">Price: High to Low</option>
+      <option value="new">Newest First</option>
+    </select>
+  </div>
+
+  <div class="products-grid" id="productsGrid">
+    <!-- Products rendered by JS -->
+  </div>
+
+  <div style="text-align:center;margin-top:48px">
+    <button class="btn-outline" style="padding:14px 40px">Load More Products ↓</button>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual fade-in">
+    <div class="about-card-main">
+      <span class="about-big-emoji">🇰🇷❤️🇮🇳</span>
+      <div class="about-card-title">Born in Mumbai.</div>
+      <div class="about-card-title" style="background:linear-gradient(90deg,var(--neon-pink),var(--neon-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Made for Stans.</div>
+      <p class="about-card-sub" style="margin-top:12px">Started as a fan project in 2021 by two ARMY friends from Bandra, Seoul Vibes grew into Mumbai's most beloved K-pop merch destination.</p>
+      <div class="about-tags">
+        <span class="about-tag">💜 ARMY Approved</span>
+        <span class="about-tag">✓ 100% Authentic</span>
+        <span class="about-tag">🇮🇳 Homegrown</span>
+        <span class="about-tag">📦 Pan India Shipping</span>
+      </div>
+      <div class="about-mini-cards">
+        <div class="about-mini">
+          <div class="about-mini-num">2021</div>
+          <div class="about-mini-label">Founded in Bandra</div>
+        </div>
+        <div class="about-mini">
+          <div class="about-mini-num">12K+</div>
+          <div class="about-mini-label">Community Members</div>
+        </div>
+        <div class="about-mini">
+          <div class="about-mini-num">500+</div>
+          <div class="about-mini-label">Products Listed</div>
+        </div>
+        <div class="about-mini">
+          <div class="about-mini-num">4.9★</div>
+          <div class="about-mini-label">Average Rating</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-text fade-in">
+    <div class="section-label">About Us</div>
+    <h2 class="section-title" style="margin-bottom:24px">K-pop ke liye <span class="highlight">dil lagaya</span> hai humne</h2>
+    <p class="about-story">
+      "Hum sirf products nahi bechte — <strong>we sell the feeling of being at a concert, holding your bias's album for the first time.</strong> That magic is real and it belongs to every desi stan."
+    </p>
+    <ul class="about-perks">
+      <li class="about-perk">
+        <span class="perk-icon">🔐</span>
+        <div class="perk-text">
+          <strong>100% Authentic Merchandise</strong>
+          <span>We source directly from official Korean distributors — no bootlegs, ever.</span>
+        </div>
+      </li>
+      <li class="about-perk">
+        <span class="perk-icon">🚀</span>
+        <div class="perk-text">
+          <strong>Fastest Delivery in Mumbai</strong>
+          <span>Mumbai deliveries in 24-48 hours. Pan India in 3-6 days.</span>
+        </div>
+      </li>
+      <li class="about-perk">
+        <span class="perk-icon">💌</span>
+        <div class="perk-text">
+          <strong>Fan-First Support</strong>
+          <span>Queries on WhatsApp, replies within 2 hours — because we're fans too.</span>
+        </div>
+      </li>
+      <li class="about-perk">
+        <span class="perk-icon">💰</span>
+        <div class="perk-text">
+          <strong>Best Prices for Desi Stans</strong>
+          <span>No crazy international shipping charges. Fair INR pricing, always.</span>
+        </div>
+      </li>
+    </ul>
+    <button class="btn-primary" onclick="smoothScroll('contact')">Connect with Us 💬</button>
+  </div>
+</section>
+
+<!-- DELIVERY SECTION -->
+<div class="delivery-section">
+  <div class="delivery-inner">
+    <div style="text-align:center;margin-bottom:48px">
+      <div class="section-label" style="justify-content:center">Delivery & Payments</div>
+      <h2 class="section-title" style="margin-bottom:12px">Delivered <span class="highlight">Across India</span></h2>
+      <p style="color:var(--text-muted);font-size:15px">COD available · Free shipping above ₹999 · Fast, tracked, and packed with love 💜</p>
+    </div>
+    <div class="delivery-grid">
+      <div class="delivery-card">
+        <div class="delivery-icon">🏙️</div>
+        <div class="delivery-title">Mumbai Express</div>
+        <div class="delivery-desc">24-48 hour delivery across Mumbai, Thane & Navi Mumbai. Same-day available in select areas.</div>
+      </div>
+      <div class="delivery-card">
+        <div class="delivery-icon">🚂</div>
+        <div class="delivery-title">Metro Cities</div>
+        <div class="delivery-desc">Delhi, Bangalore, Chennai, Hyderabad, Kolkata — 2-4 business days.</div>
+      </div>
+      <div class="delivery-card">
+        <div class="delivery-icon">📦</div>
+        <div class="delivery-title">Pan India</div>
+        <div class="delivery-desc">Anywhere in India, 4-7 business days. Every order fully tracked with SMS updates.</div>
+      </div>
+      <div class="delivery-card">
+        <div class="delivery-icon">💵</div>
+        <div class="delivery-title">Cash on Delivery</div>
+        <div class="delivery-desc">COD available across India on orders up to ₹5,000. Prepaid orders get priority dispatch.</div>
+      </div>
+      <div class="delivery-card">
+        <div class="delivery-icon">🎁</div>
+        <div class="delivery-title">Gift Wrapping</div>
+        <div class="delivery-desc">K-pop themed gift packaging available for ₹49. Perfect for bias birthdays!</div>
+      </div>
+      <div class="delivery-card">
+        <div class="delivery-icon">↩️</div>
+        <div class="delivery-title">Easy Returns</div>
+        <div class="delivery-desc">7-day return policy. Defective or wrong product? We'll replace or refund, no questions.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:40px">
+      <p class="pay-label" style="font-size:13px;color:var(--text-muted);margin-bottom:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase">Accepted Payments</p>
+      <div class="payment-row">
+        <div class="pay-badge">💳 UPI</div>
+        <div class="pay-badge">📱 Paytm</div>
+        <div class="pay-badge">🏦 Net Banking</div>
+        <div class="pay-badge">💳 Credit Card</div>
+        <div class="pay-badge">💳 Debit Card</div>
+        <div class="pay-badge">📲 Google Pay</div>
+        <div class="pay-badge">💵 COD</div>
+        <div class="pay-badge">📦 PhonePe</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INSTAGRAM FEED -->
+<div class="insta-section">
+  <div class="insta-inner">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+      <div>
+        <div class="section-label">Instagram</div>
+        <h2 class="section-title" style="margin-bottom:0">Stan <span class="highlight">Culture</span> IRL</h2>
+      </div>
+      <a href="#" style="color:var(--neon-purple);font-weight:800;font-size:14px;text-decoration:none">@seoulvibesmumbai ↗</a>
+    </div>
+    <div class="insta-grid">
+      <div class="insta-item" style="background:linear-gradient(135deg,#1a0030,#4a0060)">💿</div>
+      <div class="insta-item" style="background:linear-gradient(135deg,#0a1a3a,#1a4a8a)">🪪</div>
+      <div class="insta-item" style="background:linear-gradient(135deg,#1a0a0a,#5a1a1a)">🧥</div>
+      <div class="insta-item" style="background:linear-gradient(135deg,#0a2a1a,#0a5a30)">🖼️</div>
+      <div class="insta-item" style="background:linear-gradient(135deg,#2a1a0a,#6a3a10)">💎</div>
+      <div class="insta-item" style="background:linear-gradient(135deg,#1a0a3a,#4a1070)">🧢</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-info fade-in">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">Koi Sawal? <span class="highlight">Puchho!</span></h2>
+    <p class="section-sub">We're fans too — we get it. DM us on Instagram, WhatsApp us your wishlist, or drop a message. We reply fast. 💬</p>
+
+    <div class="contact-cards">
+      <div class="contact-card">
+        <span class="contact-icon">📍</span>
+        <div>
+          <div class="contact-type">Location</div>
+          <div class="contact-val">Bandra West, Mumbai — 400050</div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <span class="contact-icon">📧</span>
+        <div>
+          <div class="contact-type">Email</div>
+          <div class="contact-val">hello@seoulvibesmumbai.in</div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <span class="contact-icon">⏰</span>
+        <div>
+          <div class="contact-type">Support Hours</div>
+          <div class="contact-val">Mon–Sat, 10am – 8pm IST</div>
+        </div>
+      </div>
+    </div>
+
+    <button class="whatsapp-btn" onclick="alert('Opening WhatsApp...')">
+      <span class="wa-icon">💬</span>
+      Chat on WhatsApp — +91 98765 43210
+    </button>
+  </div>
+
+  <div class="contact-form fade-in">
+    <div style="background:var(--dark-card);border:1px solid rgba(180,79,255,0.2);border-radius:24px;padding:40px">
+      <h3 style="font-family:var(--font-display);font-size:28px;margin-bottom:8px;letter-spacing:1px">Send a Message</h3>
+      <p style="color:var(--text-muted);font-size:14px;margin-bottom:28px">Bulk orders, collab inquiry, or just saying hello? 💜</p>
+      <div class="form-group">
+        <label class="form-label">Your Name</label>
+        <input class="form-input" type="text" placeholder="e.g. Priya Kim">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input class="form-input" type="email" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Inquiry Type</label>
+        <select class="form-input" style="cursor:pointer">
+          <option>Order / Delivery</option>
+          <option>Product Query</option>
+          <option>Bulk / Group Buy</option>
+          <option>Collaboration</option>
+          <option>Restock Request</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea class="form-textarea" placeholder="Tell us what's on your mind... bias recommendations welcome too 💜"></textarea>
+      </div>
+      <button class="form-submit" onclick="submitForm(this)">Send Message 💜</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">SEOUL VIBES MUMBAI</div>
+        <p class="footer-tagline">Mumbai's premier K-pop merch destination. For Desi stans, by Desi stans. Yeh wali jagah tumhari hai. 💜</p>
+        <div class="social-row">
+          <div class="social-btn">📷</div>
+          <div class="social-btn">🐦</div>
+          <div class="social-btn">📘</div>
+          <div class="social-btn">💬</div>
+          <div class="social-btn">▶️</div>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Shop</div>
+        <ul class="footer-links">
+          <li><a href="#">Albums</a></li>
+          <li><a href="#">Photocards</a></li>
+          <li><a href="#">Posters</a></li>
+          <li><a href="#">Apparel</a></li>
+          <li><a href="#">Accessories</a></li>
+          <li><a href="#">Flash Sales</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Support</div>
+        <ul class="footer-links">
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Returns & Refunds</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">WhatsApp Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Community</div>
+        <ul class="footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Stan Card Rewards</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Group Buys</a></li>
+          <li><a href="#">Affiliate Program</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Seoul Vibes Mumbai. Made with <span class="footer-love">💜</span> in Bandra.</div>
+      <div class="footer-tags">
+        <span class="footer-tag">#DesiKpopStans</span>
+        <span class="footer-tag">#SeoulVibesMumbai</span>
+        <span class="footer-tag">#KpopIndia</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- CART PANEL -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart(event)">
+  <div class="cart-panel">
+    <div class="cart-header">
+      <div class="cart-title">YOUR CART 🛒</div>
+      <button class="cart-close" onclick="toggleCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div style="text-align:center;color:var(--text-muted);padding:60px 20px">
+        <div style="font-size:48px;margin-bottom:16px">🛒</div>
+        <div style="font-weight:800">Cart khali hai, yaar!</div>
+        <div style="font-size:13px;margin-top:8px">Add some merch to get started 💜</div>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-total-row">
+        <span class="cart-total-label">Total</span>
+        <span class="cart-total-val" id="cartTotal">₹0</span>
+      </div>
+      <div class="cart-shipping-note">🚀 Free shipping unlocked! Estimated 2-4 days</div>
+      <button class="checkout-btn">Proceed to Checkout →</button>
+      <div class="payment-methods">
+        <span class="pay-chip">UPI</span>
+        <span class="pay-chip">Paytm</span>
+        <span class="pay-chip">Cards</span>
+        <span class="pay-chip">COD</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="prod-modal-overlay" id="prodModalOverlay" onclick="closeModal(event)">
+  <div class="prod-modal" id="prodModal">
+    <div class="modal-img-side" id="modalImg" style="background:linear-gradient(135deg,#1a0030,#4a0060)">
+      <span id="modalEmoji" style="font-size:100px">💿</span>
+      <button class="modal-close-btn" onclick="closeProdModal()">✕</button>
+    </div>
+    <div class="modal-info-side">
+      <div class="modal-group" id="modalGroup">BTS</div>
+      <div class="modal-name" id="modalName">Product Name</div>
+      <div class="modal-type" id="modalType">Official Album</div>
+      <div class="modal-price" id="modalPrice">₹2,499</div>
+      <div class="modal-rating-row">
+        <span class="stars">★★★★★</span>
+        <span class="modal-reviews" id="modalReviews">(284 reviews)</span>
+      </div>
+      <p class="modal-desc" id="modalDesc">Official merchandise. Authentic import from Korea.</p>
+      <div class="modal-variants">
+        <div class="modal-variant-label">Select Version</div>
+        <div class="modal-variant-chips" id="modalVariants"></div>
+      </div>
+      <div class="modal-actions">
+        <button class="modal-add-btn" id="modalAddBtn">Add to Cart 🛒</button>
+        <button class="modal-wishlist-btn" onclick="toggleModalWishlist(this)">♡</button>
+      </div>
+    </div>
+    <div class="reviews-section">
+      <div class="reviews-title">What Stans Are Saying</div>
+      <div id="modalReviewsList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- RESTOCK MODAL -->
+<div class="restock-modal-overlay" id="restockOverlay">
+  <div class="restock-modal">
+    <button class="restock-close" onclick="closeRestock()">✕</button>
+    <span class="restock-icon">🔔</span>
+    <div class="restock-title">GET NOTIFIED</div>
+    <p class="restock-sub">Be the first to know when your fave items are back in stock. Kitna bhi lagao — hum batayenge!</p>
+    <div class="restock-input-row">
+      <input class="restock-input" type="email" placeholder="your@email.com" id="restockEmail">
+      <button class="restock-btn" onclick="subscribeRestock()">Notify Me!</button>
+    </div>
+  </div>
+</div>
+
+<!-- NOTIFY BANNER -->
+<div class="notify-banner" id="notifyBanner" onclick="this.classList.remove('show')">
+  <span class="notify-close">✕</span>
+  <div class="notify-inner">
+    <span class="notify-icon">🎉</span>
+    <div>
+      <div class="notify-title" id="notifyTitle">Restock Alert!</div>
+      <div class="notify-msg" id="notifyMsg">Stray Kids Maxident album just restocked — grab it fast!</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// CURSOR
+const cursor = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursor-ring');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+  setTimeout(() => {
+    cursorRing.style.left = e.clientX + 'px';
+    cursorRing.style.top = e.clientY + 'px';
+  }, 80);
+});
+document.querySelectorAll('button,a,.product-card,.flash-card,.group-chip,.insta-item').forEach(el => {
+  el.addEventListener('mouseenter', () => { cursor.style.width = '24px'; cursor.style.height = '24px'; cursorRing.style.width = '50px'; cursorRing.style.height = '50px'; });
+  el.addEventListener('mouseleave', () => { cursor.style.width = '16px'; cursor.style.height = '16px'; cursorRing.style.width = '36px'; cursorRing.style.height = '36px'; });
+});
+
+// SMOOTH SCROLL
+function smoothScroll(id) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// COUNTDOWN
+let saleEnd = new Date().getTime() + 5*3600*1000 + 23*60*1000 + 41*1000;
+function updateCountdown() {
+  const now = new Date().getTime();
+  let diff = saleEnd - now;
+  if (diff < 0) { saleEnd = new Date().getTime() + 6*3600*1000; diff = saleEnd - now; }
+  const h = Math.floor(diff/(1000*3600));
+  const m = Math.floor((diff%(1000*3600))/(1000*60));
+  const s = Math.floor((diff%60000)/1000);
+  document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+  document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+  document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// PRODUCTS DATA
+const products = [
+  { id:0, name:'Proof Album (Anthology)', group:'BTS', type:'Album', emoji:'💿', price:2499, rating:4.9, reviews:342, badge:'bestseller', cat:'album', desc:'BTS 9th anniversary anthology album with 3 CDs, photobooks, and weverse exclusive content.', variants:['Standard','Collector\'s Edition'], bg:'linear-gradient(135deg,#1a0030,#5a0080)', colors:'purple' },
+  { id:1, name:'Born Pink Photocard Set', group:'BLACKPINK', type:'Photocard Bundle', emoji:'🪪', price:799, rating:4.8, reviews:218, badge:'limited', cat:'photocard', desc:'Complete set of 20 photocards from Born Pink album. Each card is 55x85mm, glossy UV finish.', variants:['Full Set','Random Pick x5'], bg:'linear-gradient(135deg,#1a0a1a,#6a006a)', colors:'pink' },
+  { id:2, name:'SKZ Miroh Tour Cap', group:'Stray Kids', type:'Apparel', emoji:'🧢', price:1999, rating:4.7, reviews:156, badge:'limited', cat:'apparel', desc:'Official Miroh world tour adjustable cap. One size fits all. Embroidered SKZ logo.', variants:['Black','White'], bg:'linear-gradient(135deg,#0a1a3a,#1a6a90)', colors:'blue' },
+  { id:3, name:'Ready To Be A2 Poster', group:'TWICE', type:'Poster', emoji:'🖼️', price:599, rating:4.6, reviews:89, badge:'restock', cat:'poster', desc:'A2 size high-gloss poster from Ready To Be era. Thick 300gsm paper, frameable quality.', variants:['Version A','Version B','Version C'], bg:'linear-gradient(135deg,#2a1a0a,#6a3010)', colors:'amber' },
+  { id:4, name:'Spicy Digital Single Album', group:'aespa', type:'Album', emoji:'💿', price:1299, rating:4.9, reviews:201, badge:'bestseller', cat:'album', desc:'aespa Spicy digital single album with AR content unlock. Includes photocard and postcard.', variants:['Karina ver.','Winter ver.','Giselle ver.','Ningning ver.'], bg:'linear-gradient(135deg,#0a2a1a,#0a6a40)', colors:'teal' },
+  { id:5, name:'CARATs Lightstick Ver 2', group:'Seventeen', type:'Accessory', emoji:'💎', price:3499, rating:5.0, reviews:412, badge:'bestseller', cat:'accessory', desc:'Official Seventeen Carat Bong Ver.2 lightstick. App-controllable LED, rechargeable battery included.', variants:['Standard'], bg:'linear-gradient(135deg,#1a1a0a,#5a5a10)', colors:'yellow' },
+  { id:6, name:'Maxident Oversized Hoodie', group:'Stray Kids', type:'Apparel', emoji:'🧥', price:3999, rating:4.8, reviews:178, badge:'limited', cat:'apparel', desc:'Official Maxident era oversized hoodie. 100% cotton, screen printed design. Unisex fit.', variants:['S','M','L','XL','XXL'], bg:'linear-gradient(135deg,#0a1030,#302060)', colors:'purple' },
+  { id:7, name:'Dynamite Washi Tape Set', group:'BTS', type:'Accessory', emoji:'🎀', price:349, rating:4.7, reviews:94, badge:'', cat:'accessory', desc:'Set of 5 decorative washi tapes with Dynamite era themes. Perfect for journaling & decoration.', variants:['Set of 5'], bg:'linear-gradient(135deg,#2a0a10,#7a1030)', colors:'pink' },
+];
+
+let cartItems = [];
+let wishlistItems = new Set();
+let currentCat = 'all';
+let currentGroup = 'all';
+
+function renderProducts(list) {
+  const grid = document.getElementById('productsGrid');
+  grid.innerHTML = list.map(p => `
+    <div class="product-card" onclick="openProduct(${p.id})">
+      <div class="prod-img" style="background:${p.bg}">
+        <span>${p.emoji}</span>
+        <div class="prod-wishlist ${wishlistItems.has(p.id)?'active':''}" onclick="event.stopPropagation();toggleWishlistItem(${p.id}, this)">${wishlistItems.has(p.id)?'♥':'♡'}</div>
+        ${p.badge?`<span class="prod-badge badge-${p.badge}">${p.badge==='bestseller'?'⭐ Bestseller':p.badge==='limited'?'⚡ Limited':p.badge==='restock'?'🔔 Restocked':''}</span>`:''}
+      </div>
+      <div class="prod-body">
+        <div class="prod-group">${p.group}</div>
+        <div class="prod-name">${p.name}</div>
+        <div class="prod-type">${p.type}</div>
+        <div class="prod-rating">
+          <span class="stars">${'★'.repeat(Math.floor(p.rating))}${p.rating%1?'½':''}</span>
+          <span class="rating-count">(${p.reviews})</span>
+        </div>
+        <div class="prod-footer">
+          <div class="prod-price"><span>₹</span>${p.price.toLocaleString('en-IN')}</div>
+          <button class="add-cart-btn" id="addBtn${p.id}" onclick="event.stopPropagation();addToCart('${p.name}','${p.group}','${p.emoji}',${p.price},${p.id})">+ Cart</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterCat(btn, cat) {
+  document.querySelectorAll('.cat-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  currentCat = cat;
+  applyFilters();
+}
+
+function filterByGroup(g) {
+  currentGroup = g;
+  applyFilters();
+}
+
+function sortProducts(by) {
+  applyFilters(by);
+}
+
+function applyFilters(sort='popular') {
+  let filtered = products.filter(p => (currentCat==='all'||p.cat===currentCat) && (currentGroup==='all'||p.group===currentGroup));
+  if (sort==='low') filtered.sort((a,b)=>a.price-b.price);
+  else if (sort==='high') filtered.sort((a,b)=>b.price-a.price);
+  else if (sort==='new') filtered.reverse();
+  renderProducts(filtered);
+}
+
+function addToCart(name, group, emoji, price, id) {
+  const existing = cartItems.find(i=>i.name===name);
+  if (existing) existing.qty++;
+  else cartItems.push({ name, group, emoji, price, qty:1 });
+  updateCart();
+  if (id !== undefined) {
+    const btn = document.getElementById('addBtn'+id);
+    if (btn) { btn.textContent = '✓ Added'; btn.classList.add('added'); setTimeout(()=>{ btn.textContent='+ Cart'; btn.classList.remove('added'); },2000); }
+  }
+  showNotify('Added to Cart! 🛒', `${name} has been added. Checkout when ready!`);
+}
+
+function updateCart() {
+  const badge = document.getElementById('cartBadge');
+  const total = cartItems.reduce((s,i)=>s+i.price*i.qty,0);
+  const count = cartItems.reduce((s,i)=>s+i.qty,0);
+  badge.textContent = count;
+  document.getElementById('cartTotal').textContent = '₹'+total.toLocaleString('en-IN');
+  const itemsEl = document.getElementById('cartItems');
+  const footerEl = document.getElementById('cartFooter');
+  if (cartItems.length===0) {
+    itemsEl.innerHTML = '<div style="text-align:center;color:var(--text-muted);padding:60px 20px"><div style="font-size:48px;margin-bottom:16px">🛒</div><div style="font-weight:800">Cart khali hai, yaar!</div><div style="font-size:13px;margin-top:8px">Add some merch to get started 💜</div></div>';
+    footerEl.style.display='none';
+  } else {
+    footerEl.style.display='block';
+    itemsEl.innerHTML = cartItems.map((item,idx)=>`
+      <div class="cart-item">
+        <div class="cart-item-img">${item.emoji}</div>
+        <div class="cart-item-info">
+          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-group">${item.group}</div>
+          <div class="cart-item-price">₹${(item.price*item.qty).toLocaleString('en-IN')}</div>
+          <div class="cart-item-qty">
+            <button class="qty-btn" onclick="changeQty(${idx},-1)">−</button>
+            <span class="qty-num">${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${idx},1)">+</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+}
+
+function changeQty(idx, delta) {
+  cartItems[idx].qty += delta;
+  if (cartItems[idx].qty<=0) cartItems.splice(idx,1);
+  updateCart();
+}
+
+function toggleCart() {
+  document.getElementById('cartOverlay').classList.toggle('open');
+}
+
+function closeCart(e) {
+  if (e.target === document.getElementById('cartOverlay')) toggleCart();
+}
+
+function toggleWishlist() {
+  showNotify('Wishlist 💜', 'Your saved items are here. Sign in to sync across devices.');
+}
+
+function toggleWishlistItem(id, btn) {
+  if (wishlistItems.has(id)) {
+    wishlistItems.delete(id);
+    btn.textContent='♡';
+    btn.classList.remove('active');
+  } else {
+    wishlistItems.add(id);
+    btn.textContent='♥';
+    btn.classList.add('active');
+    showNotify('Added to Wishlist! 💜', `Saved for later. We'll notify you of price drops!`);
+  }
+}
+
+// PRODUCT MODAL
+const reviews = [
+  { name:'Priya K.', stars:5, text:'Ekdum authentic merch! Packaging was super cute — unboxing was a whole vibe. Delivery to Pune in 3 days. 100% recommend!' },
+  { name:'Mihir S.', stars:5, text:'ARMY hun aur yahan se already 5 baar order kar chuka hun. Quality is 🔥 and prices are way better than importing yourself.' },
+  { name:'Tanisha R.', stars:4, text:'Got the BTS proof album and the photobooks are stunning. One photocard was slightly bent but the team replaced it instantly. 💜' },
+];
+
+function openProduct(id) {
+  const p = products.find(x=>x.id===id) || products[0];
+  document.getElementById('modalImg').style.background = p.bg;
+  document.getElementById('modalEmoji').textContent = p.emoji;
+  document.getElementById('modalGroup').textContent = p.group;
+  document.getElementById('modalName').textContent = p.name;
+  document.getElementById('modalType').textContent = p.type;
+  document.getElementById('modalPrice').textContent = '₹'+p.price.toLocaleString('en-IN');
+  document.getElementById('modalReviews').textContent = `(${p.reviews} reviews)`;
+  document.getElementById('modalDesc').textContent = p.desc;
+  document.getElementById('modalVariants').innerHTML = (p.variants||[]).map((v,i)=>`<div class="variant-chip ${i===0?'selected':''}" onclick="selectVariant(this)">${v}</div>`).join('');
+  document.getElementById('modalAddBtn').onclick = ()=>{ addToCart(p.name,p.group,p.emoji,p.price,p.id); };
+  document.getElementById('modalReviewsList').innerHTML = reviews.map(r=>`
+    <div class="review-item">
+      <div class="review-header">
+        <span class="reviewer-name">${r.name}</span>
+        <span class="review-stars">${'★'.repeat(r.stars)}</span>
+      </div>
+      <div class="review-text">${r.text}</div>
+    </div>
+  `).join('');
+  document.getElementById('prodModalOverlay').classList.add('open');
+}
+
+function closeProdModal() {
+  document.getElementById('prodModalOverlay').classList.remove('open');
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('prodModalOverlay')) closeProdModal();
+}
+
+function selectVariant(el) {
+  el.closest('.modal-variant-chips').querySelectorAll('.variant-chip').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+function toggleModalWishlist(btn) {
+  btn.textContent = btn.textContent==='♡'?'♥':'♡';
+  btn.style.color = btn.textContent==='♥'?'var(--neon-pink)':'';
+  showNotify('Wishlist Updated 💜','Check your saved items anytime.');
+}
+
+// RESTOCK
+function showRestock() {
+  document.getElementById('restockOverlay').classList.add('open');
+}
+function closeRestock() {
+  document.getElementById('restockOverlay').classList.remove('open');
+}
+function subscribeRestock() {
+  const email = document.getElementById('restockEmail').value;
+  if (email) {
+    closeRestock();
+    showNotify('You\'re on the list! 🔔','We\'ll email you the moment it restocks. Promise!');
+  }
+}
+
+// NOTIFY BANNER
+let notifyTimer;
+function showNotify(title, msg) {
+  clearTimeout(notifyTimer);
+  document.getElementById('notifyTitle').textContent = title;
+  document.getElementById('notifyMsg').textContent = msg;
+  const b = document.getElementById('notifyBanner');
+  b.classList.add('show');
+  notifyTimer = setTimeout(()=>b.classList.remove('show'), 4000);
+}
+
+// FORM
+function submitForm(btn) {
+  btn.textContent='Sending...';
+  setTimeout(()=>{ btn.textContent='Sent! 💜 We\'ll reply soon'; showNotify('Message Received! 💜','We\'ll get back to you within 2 hours during support hours.'); },1500);
+}
+
+// SCROLL ANIMATIONS
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if (e.isIntersecting) e.target.classList.add('visible'); });
+},{ threshold:0.1 });
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+// NAV SCROLL EFFECT
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').style.background = window.scrollY>60?'rgba(13,10,26,0.98)':'rgba(13,10,26,0.85)';
+});
+
+// MOBILE MENU (simplified)
+function toggleMobileMenu() {
+  const links = document.querySelector('.nav-links');
+  links.style.display = links.style.display==='flex'?'none':'flex';
+  links.style.flexDirection='column';
+  links.style.position='absolute';
+  links.style.top='68px';
+  links.style.left='0'; links.style.right='0';
+  links.style.background='rgba(13,10,26,0.98)';
+  links.style.padding='20px';
+  links.style.gap='20px';
+}
+
+// RANDOM NOTIFY after 8s
+setTimeout(()=>{ showNotify('🔔 Restock Alert!','Stray Kids Maxident album just restocked — 8 units left!'); }, 8000);
+
+// Show restock modal after 25s
+setTimeout(()=>{ showRestock(); }, 25000);
+
+// INIT PRODUCTS
+renderProducts(products);
+
+// SEARCH
+document.getElementById('searchInput').addEventListener('input', function() {
+  const q = this.value.toLowerCase();
+  if (!q) { renderProducts(products); return; }
+  renderProducts(products.filter(p=>p.name.toLowerCase().includes(q)||p.group.toLowerCase().includes(q)||p.type.toLowerCase().includes(q)));
+});
+</script>
+</body>
+</html>
